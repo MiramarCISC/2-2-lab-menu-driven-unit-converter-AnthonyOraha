@@ -4,23 +4,26 @@
 using namespace std;
 
 double inchesToCentimeters(double inches) {
-    return inches * 2.54;
+    return inches * CENTIMETERS_PER_INCH;
 }
 
 double centimetersToInches(double centimeters) {
-    return centimeters / 2.54;
+    return centimeters / CENTIMETERS_PER_INCH;
 }
 
 double poundsToKilograms(double pounds) {
-    return pounds * 0.453592;
+    return pounds / POUNDS_PER_KILOGRAM; // Should be pounds*(kilogram/pounds) to get kilograms
 }
 
 double kilogramsToPounds(double kilograms) {
-    return kilograms / 0.453592;
+    return kilograms * POUNDS_PER_KILOGRAM; // Should be kilograms*(pounds/kilograms) to get pounds
 }
+// For the previous four functions, there are already named constants found in converter.hpp.
+// It is best to use those instead of hardcoded values.
 
 double fahrenheitToCelsius(double fahrenheit) {
-    return (fahrenheit - 32) * 5.0 / 9.0;
+    return (fahrenheit - 32) * (5.0 / 9.0);
+    // I recommend adding paranthesis to ensure an accurate result
 }
 
 double celsiusToFahrenheit(double celsius) {
